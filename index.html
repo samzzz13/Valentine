@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Joshu ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive;
+  background: linear-gradient(to bottom right, #ff758c, #ff7eb3);
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.page {
+  display: none;
+  text-align: center;
+  padding: 30px;
+}
+
+.active { display: block; }
+
+h1 { font-size: 2.6rem; }
+p { font-size: 1.2rem; }
+
+button {
+  padding: 15px 35px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 15px;
+}
+
+#yesBtn {
+  background: #ff2e63;
+  color: white;
+}
+
+#noBtn {
+  background: #333;
+  color: white;
+  position: absolute;
+  animation: shake 0.4s infinite;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  50% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+  100% { transform: translateX(0); }
+}
+
+.reasons {
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+}
+
+.gallery img {
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  margin: 10px;
+  object-fit: cover;
+}
+
+/* Floating Hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-110vh); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mp3">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+  <h1>Joshu 🥹❤️</h1>
+  <p>Will you be my Valentine?</p>
+  <button id="yesBtn" onclick="yesPage()">Yes 💘</button>
+  <button id="noBtn">No 💔</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+  <h1>YAYYYYY 😭❤️</h1>
+  <p>I knew it 💕 You just made my heart the happiest.</p>
+  <button id="yesBtn" onclick="lovePage()">Click here 😘</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+  <h1>Reasons I Love You, Joshu 💖</h1>
+
+  <div class="reasons">
+    <ul>
+      <li>You make my bad days better instantly</li>
+      <li>You love me in ways I didn’t know I needed</li>
+      <li>You feel like home to me</li>
+      <li>You are my safe place and my favorite person</li>
+      <li>I choose you. Every day. Always. ❤️</li>
+    </ul>
+  </div>
+
+  <h2>Us 🥰</h2>
+  <div class="gallery">
+    <!-- REPLACE with your photos -->
+    <img src="https://via.placeholder.com/300">
+    <img src="https://via.placeholder.com/300">
+    <img src="https://via.placeholder.com/300">
+  </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", () => {
+  const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+  const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+// Hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}, 300);
+
+function yesPage() {
+  page1.classList.remove("active");
+  page2.classList.add("active");
+}
+
+function lovePage() {
+  page2.classList.remove("active");
+  page3.classList.add("active");
+}
+</script>
+
+</body>
+</html>
